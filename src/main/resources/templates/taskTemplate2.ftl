@@ -51,10 +51,6 @@
             <p><strong>Description:</strong> ${taskDescription}</p>
             <p><strong>Due Date:</strong> ${dueDate}</p>
             <p><strong>Priority:</strong> ${priority}</p>
-            <p><strong>Assigned To:</strong> ${assignedTo}</p>
-            <p><strong>Created By:</strong> ${createdBy}</p>
-            <p><strong>Status:</strong> ${status}</p>
-            <p><strong>Department:</strong> ${department}</p>
         </div>
         <p>Please ensure that you review the task details and acknowledge receipt.</p>
         <p>Thank you,</p>

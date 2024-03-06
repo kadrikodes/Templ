@@ -1,19 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <script>
+        function updateForm() {
+            var priority = document.getElementById("priority").value;
+            var dynamicForm = document.getElementById("dynamicForm");
+
+            // Remove existing input boxes
+            while (dynamicForm.firstChild) {
+                dynamicForm.removeChild(dynamicForm.firstChild);
+            }
+
+            // Add new input boxes based on priority
+            if (priority === "High") {
+                dynamicForm.innerHTML = `
+                    Tomcat: <input type="text" name="tomcat"><br>
+                    Maven: <input type="text" name="maven"><br>
+                    Plugin: <input type="text" name="plugin"><br>
+                `;
+            } else if (priority === "Medium") {
+                dynamicForm.innerHTML = `
+                    Org: <input type="text" name="org"><br>
+                    Apache: <input type="text" name="apache"><br>
+                    Sum: <input type="text" name="sum"><br>
+                `;
+            } else if (priority === "Low") {
+                dynamicForm.innerHTML = `
+                    AnotherField: <input type="text" name="anotherField"><br>
+                    Example: <input type="text" name="example"><br>
+                    Custom: <input type="text" name="custom"><br>
+                `;
+            }
+        }
+    </script>
 </head>
 <body>
 <form action="/submitTask" method="post">
     Task Name: <input type="text" name="taskName"><br>
     Description: <textarea name="taskDescription"></textarea><br>
     Due Date: <input type="date" name="dueDate"><br>
-    Priority: <select name="priority">
+    Priority: <select name="priority" id="priority" onchange="updateForm()">
     <option value="High">High</option>
     <option value="Medium">Medium</option>
     <option value="Low">Low</option>
 </select><br>
+    <div id="dynamicForm"></div>
     <input type="submit" value="Submit">
 </form>
 </body>
